@@ -77,7 +77,8 @@ class PageOne extends Component {
 					
 
 					<Button style={{marginTop:30}} variant="contained" color="secondary" onClick={this.handleSubmit} type="submit">
-						<Link to={Constant.SCREEN_PAGE_TWO}>Submit</Link>
+						<Link style={{"text-decoration": "none","  text-transform":" uppercase",
+  "font-family": "Montserrat, sans-serif" , "color":"white"}} to={Constant.SCREEN_PAGE_TWO}>Submit</Link>
 					</Button>
 				</form>
 			</Container>
