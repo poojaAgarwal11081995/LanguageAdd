@@ -1,7 +1,7 @@
 /** @format */
 const initialState = {};
 const reduser = (state = initialState, action) => {
-	alert(JSON.stringify(state));
+	// alert(JSON.stringify(state));
 	if (action != undefined && action.type != undefined) {
 		if (
 			!(typeof action === "undefined") &&
