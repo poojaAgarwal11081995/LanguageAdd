@@ -1,7 +1,7 @@
 /** @format */
 
 import "./App.css";
-import { PageOne, PageTwo } from "./component";
+import { PageOne, PageTwo, SwipeableTextMobileStepper } from "./component";
 import { Route, Router, Switch } from "react-router-dom";
 
 function App() {
@@ -10,6 +10,7 @@ function App() {
 			<Switch>
 				<Route exact path="/" component={PageOne} />
 				<Route exact path="/pagetwo" component={PageTwo} />
+				<Route exact path="/slider" component={SwipeableTextMobileStepper} />
 			</Switch>
 		</div>
 	);

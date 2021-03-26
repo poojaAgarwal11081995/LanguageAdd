@@ -2,4 +2,5 @@
 
 import PageOne from "./PageOne";
 import PageTwo from "./PageTwo";
-export { PageOne, PageTwo };
+import SwipeableTextMobileStepper from "./slider";
+export { PageOne, PageTwo, SwipeableTextMobileStepper };

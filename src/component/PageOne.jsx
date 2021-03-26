@@ -3,10 +3,10 @@
 import { connect } from "react-redux";
 import React, { Component } from "react";
 import { reqFormData } from "./../action/action";
-import TextField from '@material-ui/core/TextField';
+import TextField from "@material-ui/core/TextField";
 import * as Constant from "./../action/Constants";
-import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
+import Grid from "@material-ui/core/Grid";
+import Container from "@material-ui/core/Container";
 import { Link } from "react-router-dom";
 import { Button } from "@material-ui/core";
 class PageOne extends Component {
@@ -15,17 +15,17 @@ class PageOne extends Component {
 		this.state = {
 			[Constant.Name]: "",
 			[Constant.Email]: "",
-			[Constant.Contact]:""
+			[Constant.Contact]: "",
 		};
 	}
-	
+
 	handleSubmit = (event) => {
 		event.preventDefault();
-		const {name , contact , email} =this.state;
+		const { name, contact, email } = this.state;
 		let data = {
 			[Constant.Name]: name,
 			[Constant.Contact]: contact,
-			[Constant.Email]:email
+			[Constant.Email]: email,
 		};
 
 		this.props.reqFormData(data, this);
@@ -38,16 +38,20 @@ class PageOne extends Component {
 		});
 	};
 	render() {
-		
-		const {name , email , contact} = this.state
+		const { name, email, contact } = this.state;
 		return (
 			<Container maxWidth="sm">
-				
-				<form >
+				<form>
 					<Grid>
-					<TextField id="standard-basic" label="Name" name="name" value={name}
-						type="text" onChange={this.handleChange("name")} />
-					{/* <input
+						<TextField
+							id="standard-basic"
+							label="Name"
+							name="name"
+							value={name}
+							type="text"
+							onChange={this.handleChange("name")}
+						/>
+						{/* <input
 						onChange={this.handleChange("fname")}
 						name="fname"
 						value={this.state.fname}
@@ -55,9 +59,15 @@ class PageOne extends Component {
 					/> */}
 					</Grid>
 					<Grid>
-					<TextField id="standard-basic" label="Email" name="email" value={email}
-						type="email" onChange={this.handleChange("email")} />
-					{/* <input
+						<TextField
+							id="standard-basic"
+							label="Email"
+							name="email"
+							value={email}
+							type="email"
+							onChange={this.handleChange("email")}
+						/>
+						{/* <input
 						onChange={this.handleChange("contect")}
 						name="contect"
 						value={this.state.contect}
@@ -65,20 +75,38 @@ class PageOne extends Component {
 					/>	 */}
 					</Grid>
 					<Grid>
-					<TextField id="standard-basic" label="Contact" name="contact" value={contact}
-						type="number" onChange={this.handleChange("contact")} />
-					{/* <input
+						<TextField
+							id="standard-basic"
+							label="Contact"
+							name="contact"
+							value={contact}
+							type="number"
+							onChange={this.handleChange("contact")}
+						/>
+						{/* <input
 						onChange={this.handleChange("contect")}
 						name="contect"
 						value={this.state.contect}
 						type="text"
 					/> */}
 					</Grid>
-					
 
-					<Button style={{marginTop:30}} variant="contained" color="secondary" onClick={this.handleSubmit} type="submit">
-						<Link style={{"text-decoration": "none","  text-transform":" uppercase",
-  "font-family": "Montserrat, sans-serif" , "color":"white"}} to={Constant.SCREEN_PAGE_TWO}>Submit</Link>
+					<Button
+						style={{ marginTop: 30 }}
+						variant="contained"
+						color="secondary"
+						onClick={this.handleSubmit}
+						type="submit">
+						<Link
+							style={{
+								"text-decoration": "none",
+								"  text-transform": " uppercase",
+								"font-family": "Montserrat, sans-serif",
+								color: "white",
+							}}
+							to={Constant.SCREEN_PAGE_TWO}>
+							Submit
+						</Link>
 					</Button>
 				</form>
 			</Container>
@@ -86,9 +114,8 @@ class PageOne extends Component {
 	}
 }
 
-
 const mapStateToProp = (response) => {
 	console.log(response);
 	return response;
 };
-export default connect(mapStateToProp, { reqFormData })(PageOne) ;
+export default connect(mapStateToProp, { reqFormData })(PageOne);
