@@ -8,7 +8,7 @@ import * as Constant from "./../action/Constants";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
 import { Link } from "react-router-dom";
-import { Button } from "@material-ui/core";
+import { Button, Typography } from "@material-ui/core";
 class PageOne extends Component {
 	constructor(props) {
 		super(props);
@@ -40,8 +40,9 @@ class PageOne extends Component {
 	render() {
 		const { name, email, contact } = this.state;
 		return (
-			<Container maxWidth="sm">
+			<Container maxWidth="sm" style={styles.div}>
 				<form>
+					<Typography style={styles.Typography}>Login</Typography>
 					<Grid>
 						<TextField
 							id="standard-basic"
@@ -51,12 +52,6 @@ class PageOne extends Component {
 							type="text"
 							onChange={this.handleChange("name")}
 						/>
-						{/* <input
-						onChange={this.handleChange("fname")}
-						name="fname"
-						value={this.state.fname}
-						type="text"
-					/> */}
 					</Grid>
 					<Grid>
 						<TextField
@@ -67,12 +62,6 @@ class PageOne extends Component {
 							type="email"
 							onChange={this.handleChange("email")}
 						/>
-						{/* <input
-						onChange={this.handleChange("contect")}
-						name="contect"
-						value={this.state.contect}
-						type="text"
-					/>	 */}
 					</Grid>
 					<Grid>
 						<TextField
@@ -83,12 +72,6 @@ class PageOne extends Component {
 							type="number"
 							onChange={this.handleChange("contact")}
 						/>
-						{/* <input
-						onChange={this.handleChange("contect")}
-						name="contect"
-						value={this.state.contect}
-						type="text"
-					/> */}
 					</Grid>
 
 					<Button
@@ -113,6 +96,22 @@ class PageOne extends Component {
 		);
 	}
 }
+const styles = {
+	div: {
+		border: "1px solid red",
+		display: "flex",
+		padding: 40,
+		width: "300px",
+		alignItem: "center",
+		justifyContent: "center",
+		marginTop: 70,
+		bockgroundColor: "transparent",
+	},
+	Typography: {
+		fontWidth: "bold",
+		fontSize: "30px",
+	},
+};
 
 const mapStateToProp = (response) => {
 	console.log(response);

@@ -6,8 +6,9 @@ import React, { useState, useEffect } from "react";
 function Style() {
 	const [data, setData] = useState([]);
 	const [item, setItem] = useState([]);
+	const [name, setName] = useState("");
 
-	const loadDoc = () => {
+	const loadDoc = (name) => {
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function () {
 			if (this.readyState == 4 && this.status == 200) {
@@ -17,7 +18,11 @@ function Style() {
 				// ()
 			}
 		};
-		xhttp.open("GET", "https://jsonplaceholder.typicode.com/posts", true);
+		xhttp.open(
+			"GET",
+			`https://jsonplaceholder.typicode.com/comments?postId=${name}`,
+			true,
+		);
 		xhttp.setRequestHeader("Content-type", "application/json");
 		xhttp.send();
 	};
@@ -31,7 +36,8 @@ function Style() {
 			.then((res) => res.json())
 			.then((result) => setData(result))
 			.catch((err) => console.log(err));
-	}, []);
+		loadDoc(name);
+	}, [data, name]);
 	return (
 		<>
 			<div>
@@ -39,9 +45,15 @@ function Style() {
 					return <p>{item.title}</p>;
 				})}
 			</div>
-			<Button onClick={loadDoc}>dsd</Button>
+			<input value={name} onChange={(e) => setName(e.target.value)} />
+			<Button
+				onClick={() => {
+					loadDoc(name);
+				}}>
+				dsd
+			</Button>
 			{item.map((item) => {
-				return <h2>{item.title}</h2>;
+				return <h2>{item.name}</h2>;
 			})}
 		</>
 	);
